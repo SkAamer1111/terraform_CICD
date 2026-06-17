@@ -13,7 +13,7 @@ pipeline{
         stage ('INIT') {
             steps {
                 sh 'echo "download all provider"'
-                sh 'terraform init'
+                sh 'terraform init -migrate-state'
             }
         }
         stage ('FMT') {
