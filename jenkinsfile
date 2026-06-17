@@ -31,7 +31,14 @@ pipeline{
         stage ('PLAN') {
             steps {
                 sh 'echo "check what resource is creating"'
-                sh 'terraform plan'
+                sh 'terraform plan -out=tfplan'
+            }
+        }
+
+        stage ('APPLY') {
+            steps {
+                sh 'echo " resource is creating"'
+                sh 'terraform apply -auto-approve tfplan'
             }
         }
     }
