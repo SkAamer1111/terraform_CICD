@@ -44,7 +44,7 @@ pipeline{
         stage ('DESTROY') {
             steps {
                 sh 'echo " resource is creating"'
-                sh 'terraform destroy -auto-approve tfplan'
+                sh 'terraform destroy -auto-approve'
             }
         }
     }
