@@ -92,18 +92,3 @@ variable "subnet_asco_data" {
   })
 }
 
-
-variable "key_data" {
-  type = object({
-    name       = string
-    public_key = string
-  })
-}
-
-variable "instance_data" {
-  type = object({
-    name          = string
-    ami           = string
-    instance_type = string
-  })
-}
