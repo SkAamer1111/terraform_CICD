@@ -41,5 +41,11 @@ pipeline{
                 sh 'terraform apply -auto-approve tfplan'
             }
         }
+        stage ('APPLY') {
+            steps {
+                sh 'echo " resource is creating"'
+                sh 'terraform destroy -auto-approve tfplan'
+            }
+        }
     }
 }
