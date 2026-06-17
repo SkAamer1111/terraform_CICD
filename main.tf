@@ -108,16 +108,6 @@ module "ec2" {
     values = "public"
   }
 
-  key_data = {
-    name       = "key_tf"
-    public_key = "~/.ssh/id_rsa.pub"
-  }
-
-  instance_data = {
-    name          = "ec2-tf"
-    ami           = "ami-06259b63260eddc13"
-    instance_type = "t3.micro"
-  }
 
 
 

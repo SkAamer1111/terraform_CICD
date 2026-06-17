@@ -1,0 +1,38 @@
+pipeline{
+    agent any
+    environment {
+        AWS_ACCESS_KEY_ID     = credentials('aws-access-key-id')
+        AWS_SECRET_ACCESS_KEY = credentials('aws-secret-access-key')
+    }
+    stages{
+        stage ('CODE') {
+            steps {
+                git branch: 'main', url: 'https://github.com/SkAamer1111/terraform_CICD.git'
+            }
+        }
+        stage ('INIT') {
+            steps {
+                sh 'echo "download all provider"'
+                sh 'terraform init -reconfigure'
+            }
+        }
+        stage ('FMT') {
+            steps {
+                sh 'echo "syntactical format"'
+                sh 'terraform fmt'
+            }
+        }
+        stage ('VALIDATE') {
+            steps {
+                sh 'echo "check any syntec error"'
+                sh 'terraform validate'
+            }
+        }
+        stage ('PLAN') {
+            steps {
+                sh 'echo "check what resource is creating"'
+                sh 'terraform plan'
+            }
+        }
+    }
+}
