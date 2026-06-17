@@ -110,7 +110,7 @@ module "ec2" {
 
   key_data = {
     name       = "key_tf"
-    public_key = "~/.ssh/id_rsa.pub"
+    public_key = "~/keys/id_rsa.pub"
   }
 
   instance_data = {
